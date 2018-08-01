@@ -8,6 +8,10 @@
 #define C_MOUSE  //Send left mouse button clicks
 #define C_SERIAL //Send serial events and listen for state requests
 
+// Button press animation behaviour
+#define ANI_COMM //Still send USB communication during animation
+
+
 #include <WS2812Serial.h>
 
 #define BOUNCE_LOCK_OUT
@@ -139,16 +143,25 @@ void flasher() {
 
 void click() {
     setAll(0, 0);
-    delay(400);
+    click_delay(400);
     for(uint b=0; b<255; b++) {
         setAll(0, b);
-        delay(15);
+        click_delay(15);
     }
     for(uint b=0; b<255; b++) {
         setAll(0, 255-b);
-        delay(30);
+        click_delay(30);
     }
-    delay(750);
+    click_delay(750);
+}
+void click_delay(ulong delay) {
+    ulong s = millis();
+    while(millis() - s < delay) {
+        #ifdef ANI_COMM
+            debouncer.update();
+        #endif
+        update_usb();
+    }
 }
 
 
