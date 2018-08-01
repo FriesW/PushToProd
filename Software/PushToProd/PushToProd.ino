@@ -126,16 +126,16 @@ void flasher() {
 
 void click() {
     setAll(0, 0);
-    delay(750);
+    delay(400);
     for(uint b=0; b<255; b++) {
         setAll(0, b);
-        delay(20);
+        delay(15);
     }
     for(uint b=0; b<255; b++) {
         setAll(0, 255-b);
-        delay(35);
+        delay(30);
     }
-    delay(1500);
+    delay(750);
 }
 
 
