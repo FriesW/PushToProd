@@ -67,10 +67,14 @@ void loop() {
 }
 
 void update_usb() {
+    static bool once = false;
     #ifdef C_MOUSE
-    if( debouncer.rose() ){
+    if( debouncer.rose() && !once ){
         Mouse.click();
+        once = true;
     }
+    if( debouncer.fell() )
+        once = false;
     #endif
     #ifdef C_SERIAL
     if( debouncer.rose() ){
@@ -79,8 +83,8 @@ void update_usb() {
     if( debouncer.fell() ){
         Serial.println("P"); //press
     }
-    if(Serial.available()) {
-        Serial.read();
+    char c = Serial.read();
+    if(' ' <= c && c <= '~') {
         Serial.println(debouncer.read() ? "U" : "D" ); //up & down
     }
     #endif
