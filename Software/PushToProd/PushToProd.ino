@@ -1,12 +1,12 @@
 // DEPLOY
 // Teensy LC
-// USB: keyboard + mouse + joystick
+// USB: serial + keyboard + mouse + joystick
 // Layout: US english
 // CPU 48 Mhz
 
 // Comment & uncomment the following defs to control USB behaviour
-#define MOUSE
-#define SERIAL
+#define MOUSE  //Send left mouse button clicks
+#define SERIAL //Send serial events and listen for state requests
 
 #include <WS2812Serial.h>
 
