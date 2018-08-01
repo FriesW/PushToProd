@@ -106,9 +106,9 @@ void fader() {
     static uint step = random(255*6);
     static ulong brightness = 0;
     static elapsedMillis last;
-    const static uint level_split = 255; //Hue step split between rows
+    const static uint level_split = 200; //Hue step split between rows
     
-    if(last < 25)
+    if(last < 10)
         return;
     if(last > 100)
         brightness = 0;
