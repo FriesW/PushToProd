@@ -4,6 +4,10 @@
 // Layout: US english
 // CPU 48 Mhz
 
+// Comment & uncomment the following defs to control USB behaviour
+#define MOUSE
+#define SERIAL
+
 #include <WS2812Serial.h>
 
 #define BOUNCE_LOCK_OUT
@@ -37,6 +41,10 @@ void setup() {
         acc += (analogRead(0) & 1) << i;
     randomSeed(acc);
 
+    #ifdef SERIAL
+        Serial.begin(9600);
+    #endif
+    
     leds.begin();
     
     pinMode(button, INPUT_PULLUP);
@@ -49,14 +57,39 @@ void setup() {
 void loop() {
     debouncer.update();
     
-    if( debouncer.rose() ) {
-        click();
+    update_usb();
+    update_leds();
+}
+
+void update_usb() {
+    #ifdef MOUSE
+    if( debouncer.rose() ){
+        Mouse.click();
     }
-    
+    #endif
+    #ifdef SERIAL
+    if( debouncer.rose() ){
+        Serial.println("P"); //press
+    }
+    if( debouncer.fell() ){
+        Serial.println("R"); //release
+    }
+    if(Serial.available()) {
+        Serial.read();
+        Serial.println(debouncer.read() ? "U" : "D" ); //up & down
+    }
+    #endif
+}
+
+void update_leds() {
     if( debouncer.read() )
         fader();
     else
         flasher();
+    
+    if( debouncer.rose() ) {
+        click();
+    }
 }
 
 
@@ -92,7 +125,6 @@ void flasher() {
 }
 
 void click() {
-    Mouse.click();
     setAll(0, 0);
     delay(750);
     for(uint b=0; b<255; b++) {
