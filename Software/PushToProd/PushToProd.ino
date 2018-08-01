@@ -133,7 +133,7 @@ void fader() {
 void flasher() {
     static elapsedMillis last;
     
-    if(last < 35)
+    if(last < 45)
         return;
     last = 0;
     
