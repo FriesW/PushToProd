@@ -5,8 +5,8 @@
 // CPU 48 Mhz
 
 // Comment & uncomment the following defs to control USB behaviour
-#define MOUSE  //Send left mouse button clicks
-#define SERIAL //Send serial events and listen for state requests
+#define C_MOUSE  //Send left mouse button clicks
+#define C_SERIAL //Send serial events and listen for state requests
 
 #include <WS2812Serial.h>
 
@@ -41,7 +41,7 @@ void setup() {
         acc += (analogRead(0) & 1) << i;
     randomSeed(acc);
 
-    #ifdef SERIAL
+    #ifdef C_SERIAL
         Serial.begin(9600);
     #endif
     
@@ -62,12 +62,12 @@ void loop() {
 }
 
 void update_usb() {
-    #ifdef MOUSE
+    #ifdef C_MOUSE
     if( debouncer.rose() ){
         Mouse.click();
     }
     #endif
-    #ifdef SERIAL
+    #ifdef C_SERIAL
     if( debouncer.rose() ){
         Serial.println("P"); //press
     }
