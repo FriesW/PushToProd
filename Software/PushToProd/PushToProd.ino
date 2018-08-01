@@ -10,6 +10,7 @@
 
 // Button press animation behaviour
 #define ANI_COMM //Still send USB communication during animation
+#define ANI_EXIT //Exit animation if button pressed again. Implies prior define.
 
 
 #include <WS2812Serial.h>
@@ -143,25 +144,30 @@ void flasher() {
 
 void click() {
     setAll(0, 0);
-    click_delay(400);
+    if(!click_delay(400))return;
     for(uint b=0; b<255; b++) {
         setAll(0, b);
-        click_delay(15);
+        if(!click_delay(15))return;
     }
     for(uint b=0; b<255; b++) {
         setAll(0, 255-b);
-        click_delay(30);
+        if(!click_delay(30))return;
     }
-    click_delay(750);
+    if(!click_delay(750))return;
 }
-void click_delay(ulong delay) {
+bool click_delay(ulong delay) {
     ulong s = millis();
     while(millis() - s < delay) {
-        #ifdef ANI_COMM
-            debouncer.update();
+        #if defined(ANI_COMM) || defined(ANI_EXIT)
+        debouncer.update();
         #endif
         update_usb();
+        #ifdef ANI_EXIT
+        if(debouncer.fell())
+            return false;
+        #endif
     }
+    return true;
 }
 
 
