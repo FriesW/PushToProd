@@ -73,10 +73,10 @@ void update_usb() {
     #endif
     #ifdef C_SERIAL
     if( debouncer.rose() ){
-        Serial.println("P"); //press
+        Serial.println("R"); //release
     }
     if( debouncer.fell() ){
-        Serial.println("R"); //release
+        Serial.println("P"); //press
     }
     if(Serial.available()) {
         Serial.read();
