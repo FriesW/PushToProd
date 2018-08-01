@@ -97,6 +97,7 @@ void fader() {
     static uint step = random(255*6);
     static ulong brightness = 0;
     static elapsedMillis last;
+    const static uint level_split = 255; //Hue step split between rows
     
     if(last < 25)
         return;
@@ -109,7 +110,19 @@ void fader() {
     
     step++;
     step = step % (255*6);
-    setAll(step, brightness / 32);
+    
+    uint L1 = (step + level_split * 0) % (255*6);
+    uint L2 = (step + level_split * 1) % (255*6); //Swap L1 & L3 assignments for rev direction
+    uint L3 = (step + level_split * 2) % (255*6);
+    uint bt = brightness / 32;
+    
+    setPixel(0, L1, bt);
+    setPixel(5, L1, bt);
+    setPixel(1, L2, bt);
+    setPixel(4, L2, bt);
+    setPixel(2, L3, bt);
+    setPixel(3, L3, bt);
+    leds.show();
 }
 
 void flasher() {
