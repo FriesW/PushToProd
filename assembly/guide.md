@@ -90,8 +90,8 @@ You will need:
 1. Program, solder, and mount electronics
 1. Treat and place small acrylic backing pieces
 1. Build box, except bottom
-1. Mount front acrylic, bolts, and button
-1. Add diffusion, connect button, mount bottom
+1. Mount front acrylic, bolts, button, and diffusion
+1. Connect button and mount bottom
 
 ## Detailed
 
@@ -183,7 +183,7 @@ loop will sit against the back wall once the enclosure is fully built.
 
 When bending the wire, use your nail and a firm grip to take all the forces of the bend.
 Try your best to keep any force off of the solder joints on the LEDs, as this could break the
-joint or rip off a PCB pad. Using your nail allows you to gain a very sharp corner in the wire.
+joint or rip off a PCB pad. Using your nail allows you to make a very sharp corner in the wire.
 Practice and figure out a technique that works for you. You might also plan ahead and pre-emptivley
 place bends before gluing.
 
@@ -194,24 +194,24 @@ acts like a strain relief, so movement of the Teensy and its wires doesn't affec
 > The extra loops of wire in the photo are to even out the wirelengths coming from the Teensy.
 > They have no functional purpose.
 
-Finally, plug in the Teensy, and check that all the LEDs still light up!
+Finally, plug in the Teensy and check that all the LEDs still light up!
 
 
 ### Treat and place small acrylic backing pieces
 
-You'll need the two small acrylic pieces and the sandpaper. The goal of this step
+You'll need the two small acrylic pieces and sandpaper. The goal of this step
 is to make the acrylic appear frosted.
 
 Acrylic comes with a protective plastic coating on each side. Peel the coating off of both sides
 and then begin sanding. I recommend sanding in a figure eight pattern, to prevent uniform scratches.
 For me each piece needed 200 cycles, with a washing in the middle. Your milage may vary.
 
-Once the pieces are frosted to your likening, cleaned, dry, and free of dust, we'll mount them.
+Once the pieces are frosted to your liking, cleaned, dry, and free of dust, we'll mount them.
 The pieces go behind the lettering in the faceplate piece, with the cutout corners of the acrylic
 pieces directed towards the bolt holes. Place the acrylic pieces on the back side of the faceplate,
 frosted side down, smooth side up. Then place a bead of hot glue around the perimiter.
 
-Placing the smooth side up has a big advantage: unless you are a hot glue ninga, you will drag a
+Placing the smooth side up has a big advantage: unless you are a hot glue ninja, you will drag a
 string of hot glue across the top of the acrylic at some point. It is much easier to remove
 from the smooth surface (by rubbing it) then to remove it from the scratched surface.
 
@@ -239,6 +239,32 @@ corners and bolt holes.
 
 Repeat the same process with the front wall. Note that there should be no visible gap
 from the outside, as the void is now on the inside of the box. This means the long joint
-for the front wall is very "glue thirsty".
+for the front wall is very "glue thirsty."
 
 
+### Mount front acrylic, bolts, button, and diffusion
+
+#### Mount front acrylic and bolts
+
+Place the box bottom down, with the faceplace facing up. Peel off the protective coatings from
+the front acrylic piece and place it on top. Insert the four bolts and washers. Use the short
+bolts on the top end, as it has the tighest clearances inside.
+
+Now, carefully flip over the box, such that none of the bolts fall out. The box should now
+be sitting on the table through the four bolt heads. Without picking up the box, flood each corner
+of the box with hot glue. This will hold the bolts in, reinforce the corners of the box, and
+keep the faceplate acrylic aligned. Make sure that the glue does not flow on top of the
+interior acrylic.
+
+
+#### Mount button
+
+Prepare the button by attaching around 4" to the normally open (NO) contacts. If unsure, use your
+multimeter in ohms or continuity mode and find the pair of contacts which are connected only
+when the button is pressed. The normally closed (NC) contacts can also be used, but then you'll
+have to update the code.
+
+If you have the Uxcell button from Amazon the NO contacts are the two bottom screw terminals.
+You'll also have to remove the two rubber washers, as they add too much thickness.
+
+Pass the button through the hole, screw on the faceplate nut, and reassemble the button.
