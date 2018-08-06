@@ -214,3 +214,31 @@ frosted side down, smooth side up. Then place a bead of hot glue around the peri
 Placing the smooth side up has a big advantage: unless you are a hot glue ninga, you will drag a
 string of hot glue across the top of the acrylic at some point. It is much easier to remove
 from the smooth surface (by rubbing it) then to remove it from the scratched surface.
+
+
+### Build box, except bottom
+
+Gather the remaining wall pieces of the box, hot glue gun, and clamps if you have them.
+
+Clamp the wooden faceplate horizontally, with the majority of the clamp surface pointing
+past the back of the faceplate. This provides a flush, right angle surface for the side pieces
+to be placed against. Push one of the side pieces into place against the clamp, and then lay down
+a bead of hot glue. Keep a margin around each screw hole and corner of the faceplate piece
+free of glue. We will need the space later for adding additional walls and the bolts.
+Complete both angled side walls.
+
+Remove the clamps and now move to the back of the box. If tolerances are correct, sliding in the
+back wall should be a tight fit, but still fit. Note that there will be a visible gap between
+the top of the back wall and the bottom of the faceplate. However, you should not be able to see
+though this gap.
+
+Once you get it flush with the back and bottomed out against the faceplate,
+clamp the two sidewalls through the bottom of the backpiece. Use additional clamps as necessary
+to assist with alignment. Glue it up on all three edges, again keeping away from the
+corners and bolt holes.
+
+Repeat the same process with the front wall. Note that there should be no visible gap
+from the outside, as the void is now on the inside of the box. This means the long joint
+for the front wall is very "glue thirsty".
+
+
