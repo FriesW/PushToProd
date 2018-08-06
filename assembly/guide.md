@@ -90,12 +90,14 @@ You will need:
 1. Program, solder, and mount electronics
 1. Treat and place small acrylic backing pieces
 1. Build box, except bottom
-1. Mount front acrylic, button, and bolts
+1. Mount front acrylic, bolts, and button
 1. Add diffusion, connect button, mount bottom
 
 ## Detailed
 
 ### Program, solder, and mount electronics
+
+#### Program
 
 First, lets prepare the microcontroller. Download and install the
 [Arduino IDE](https://www.arduino.cc/en/Main/Software) and
@@ -113,6 +115,8 @@ Arduino IDE to load the code onto the Teensy, and follow the on-screen steps.
 If all goes well, you should see "Success" in the Teensy loader window.
 
 Unplug the Teensy, and prepare your soldering iron.
+
+#### Solder
 
 First we will prepare the Teensy. The LEDs we are connecting expect 5V, but the Teensy is
 a 3.3V microcontroller. However, the Teensy has one built in 5V pin. Unfortunatley, due to
@@ -163,5 +167,32 @@ entire cycle and make sure they all light up each fundamental color: red, green,
 I had a bogus LED that was missing green!
 
 If all LEDs pass, then pat yourself on the back! You've just completed the most difficult
-part of this project. Put the iron away, we're moving on!
+part of this project. Put the iron away, we're moving on (though you'll need it later)!
+
+#### Mount
+
+Move to the liquid plastic extruder (hot glue gun). We'll be gluing down the LEDs to the bottom panel
+with the hot glue gun. Throughout the entire process, keep in mind the constructon of the box: all
+of the walls sit on top of the bottom piece. Thus, we must keep the outer 5mm clear on each side of
+the bottom.
+
+Start gluing with the first LED in the bottom right corner and work clockwise.
+Place a dab of hot glue under each LED, next to the bottom opening, and then press the LED in.
+Once you've done one side, we need to carefully bend the wire in a vertical loop. This
+loop will sit against the back wall once the enclosure is fully built.
+
+When bending the wire, use your nail and a firm grip to take all the forces of the bend.
+Try your best to keep any force off of the solder joints on the LEDs, as this could break the
+joint or rip off a PCB pad. Using your nail allows you to gain a very sharp corner in the wire.
+Practice and figure out a technique that works for you. You might also plan ahead and pre-emptivley
+place bends before gluing.
+
+Once all six LEDs are glued down, we need to deal with the wire between the Teensy and first led.
+We want to bend the wire around towards the center, and then apply copious glue. This glue
+acts like a strain relief, so movement of the Teensy and its wires doesn't affect the LEDs.
+
+> The extra loops of wire in the photo are to even out the wirelengths coming from the Teensy.
+> They have no functional purpose.
+
+Finally, plug in the Teensy, and check that all the LEDs still light up!
 
