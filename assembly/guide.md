@@ -91,7 +91,7 @@ You will need:
 1. Treat and place small acrylic backing pieces
 1. Build box, except bottom
 1. Mount front acrylic, bolts, button, and diffusion
-1. Connect button and mount bottom
+1. Connect button, mount bottom, and feet
 
 ## Detailed
 
@@ -247,15 +247,16 @@ for the front wall is very "glue thirsty."
 #### Mount front acrylic and bolts
 
 Place the box bottom down, with the faceplace facing up. Peel off the protective coatings from
-the front acrylic piece and place it on top. Insert the four bolts and washers. Use the short
-bolts on the top end, as it has the tighest clearances inside.
+the front acrylic piece and place it on top. Be extra careful not to place finger prints on
+the side which will be facing the wood. This will be permanently mounted, so impossible to clean.
+Insert the four bolts and washers. Use the short bolts on the top end, as it has the
+tighest clearances inside.
 
 Now, carefully flip over the box, such that none of the bolts fall out. The box should now
 be sitting on the table through the four bolt heads. Without picking up the box, flood each corner
 of the box with hot glue. This will hold the bolts in, reinforce the corners of the box, and
 keep the faceplate acrylic aligned. Make sure that the glue does not flow on top of the
 interior acrylic.
-
 
 #### Mount button
 
@@ -268,3 +269,62 @@ If you have the Uxcell button from Amazon the NO contacts are the two bottom scr
 You'll also have to remove the two rubber washers, as they add too much thickness.
 
 Pass the button through the hole, screw on the faceplate nut, and reassemble the button.
+
+#### Diffusion
+
+Plug in the box bottom with the electronics and fit it underneath the rest of the box.
+We just want to get an idea of how the lighting currently looks. You'll notice that there are
+hot spots, and even though the acrylic is frosted, and it is clear where the LEDs are inside
+the box.
+
+Cut pieces of the quilt batting to be slightly larger than the small interior acrylic pieces.
+Use hot glue to tack these inside the box until you are satisfied with the diffusion. A gluing tactic
+is to place glue against the sidewall above the batting, and then let it flow down into the batting. If
+you touch the batting with the hot glue gun tip, fibers will stick to it.
+You can also place small squares on top of the LEDs, especially the front most LEDs.
+
+
+### Connect button, mount bottom, and feet
+
+#### Connect button
+
+Unless you've modified the code, the button should be connected to pins 3 and 4 of the Teensy. Solder the
+wires to these pins. Once that is complete, we are done with the soldering iron! Plug in the USB cable and test
+that everything works: the lights light up, and the button changes the animation.
+
+#### Mount bottom
+
+Now the bottom piece, which has the LEDs and other electronics, can be attached to the rest of the box.
+This is a little tricky, as there isn't a lot of room to access the interior. However, hot glue does flow a bit,
+and this can be used to our advantage. The general tactic will be to hold the box such that the corner we are 
+gluing is pointing down, with the box 45 deg from level. Then flood the edge with hot glue, assuring that the glue
+fills the area and pools on the faces we are gluing.
+
+Align the bottom piece with the box, and then clamp at the front of the box, from its left to right side. This
+will assure the horizontal alignment of the bottom piece and help keep it in place. Hold the box such that you
+can apply vertical force, pressing the bottom against the box. Now, angle the box so the edge between the front
+and bottom pieces is horizontal, and the bottom of the box is rotated 45 deg from horizontal.
+
+Place the tip of the glue gun as close to the joint as possible and then pull the trigger a few times, filling the area with glue. Make sure to wait for the glue to cool before moving the box out of this orientation. The glue could
+spill out of the box and off of the joint if the orientation is changed. One set, remove the clamp(s) and prepare
+for the back of the box.
+
+TODO: BACK OF BOX
+
+#### Feet
+
+Finally, we must put "feet" on the bottom, otherwise the box will slide away every time you try to push the button.
+Cut two equal strips of the non-skid shelf liner material. They would be about 0.5" wide and as long as the bottom
+opening.
+
+Lay a single bead of hot glue down, next to the bottom opening. Then press the non-skid material into the
+glue. Be careful to not use too much hot glue, as we don't want it to squeese out through the gaps in the non-skid
+material and prevent even contact with a table top. Additionally, you might press the non-skid material
+into the glue with a large metal object, like hefty scissors. Any glue squeeze out will not stick to the
+cold metal, and the squeeze out will be flush with the non-stick material due to the flat implement
+(this will also save your finger tips).
+
+### Done!
+
+Congrats! You can now increase the ceremony and excitement around prod deployments.
+
