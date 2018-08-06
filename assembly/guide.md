@@ -196,3 +196,21 @@ acts like a strain relief, so movement of the Teensy and its wires doesn't affec
 
 Finally, plug in the Teensy, and check that all the LEDs still light up!
 
+
+### Treat and place small acrylic backing pieces
+
+You'll need the two small acrylic pieces and the sandpaper. The goal of this step
+is to make the acrylic appear frosted.
+
+Acrylic comes with a protective plastic coating on each side. Peel the coating off of both sides
+and then begin sanding. I recommend sanding in a figure eight pattern, to prevent uniform scratches.
+For me each piece needed 200 cycles, with a washing in the middle. Your milage may vary.
+
+Once the pieces are frosted to your likening, cleaned, dry, and free of dust, we'll mount them.
+The pieces go behind the lettering in the faceplate piece, with the cutout corners of the acrylic
+pieces directed towards the bolt holes. Place the acrylic pieces on the back side of the faceplate,
+frosted side down, smooth side up. Then place a bead of hot glue around the perimiter.
+
+Placing the smooth side up has a big advantage: unless you are a hot glue ninga, you will drag a
+string of hot glue across the top of the acrylic at some point. It is much easier to remove
+from the smooth surface (by rubbing it) then to remove it from the scratched surface.
