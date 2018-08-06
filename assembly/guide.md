@@ -8,7 +8,7 @@ No knowledge of electronics or programming is required. All adhesion is done
 with hot glue, and there are no "waiting" steps.
 
 Due to the wide array of laser cutters available, this guide does not go
-through the steps of engraving and cutting materials. It is assumed that is
+through the steps of engraving and cutting materials. It is assumed that cutting is
 already done. That said, the pdf files in the repository are built to work
 with Epilog software, so it should be straightforward with Epilog systems.
 
@@ -102,7 +102,7 @@ You will need:
 First, lets prepare the microcontroller. Download and install the
 [Arduino IDE](https://www.arduino.cc/en/Main/Software) and
 [Teensyduino](https://www.pjrc.com/teensy/teensyduino.html)
-software. Open the `PushToProd.ino`. In Arduino, go to tools and assure
+software. Open the `PushToProd.ino`. In Arduino, go to the tools menu and assure
 the following fields are set:
 * Board: Teensy LC
 * USB Type: Serial + Keyboard + Mouse + Joystick
@@ -128,9 +128,9 @@ the side breakout of pin 17 to the interior breakout of pin 24.
 
 Next, we will prepare the LEDs.
 
-WS2812 LEDs are digital LEDs, which have a data in and a data out.
+WS2812 LEDs are digital LEDs, which have a data in pin and a data out pin.
 The LEDs are chained in series, such that the data output of each LED
-passes into the input of the next LED. In this way, the LEDs are "addressed"
+passes into the data input of the next LED. In this way, the LEDs are "addressed"
 by the order they are wired, and thus can each individually be commanded to
 display a particular color.
 
@@ -139,12 +139,13 @@ bordering each side of the gap on the bottom of the box. They should be as close
 to the opening as possible, for clearances needed later in the build.
 
 I recommend soldering the middle data wire first, and then the outside power lines.
-The power lines can short together across the LED, but the data line cannot.
+The power lines can shorted together across the LED, but the data line cannot.
 
 Once you build the two strings of three LEDs, check for shorts if you have a multimeter.
 Put the meter in "Ohms" mode. If a ranged meter, put it in the most sensitive mode.
 The probes should be attached to the LEDs counter to the LED polarity, such that no current
-flows through the LEDs (since they are diodes). This means that any resistance seen (versus open circut) is caused by a short.
+flows through the LEDs (since they are diodes). This means that any resistance seen
+(versus open circut) is caused by a short.
 
 Thus, place the black probe on the positive rail, and the red probe on the negative
 rail. This should read open circuit or a resistance in megaohms. Also try negative rail
@@ -157,9 +158,9 @@ Once confident all connections are correct, wire the two short strings together 
 data input) to the Teensy with around 3.5" of wire. You will want the data line wire to be
 shorter then the power rail wires, due to where it will connect on the Teensy.
 
-The LED data input should go to the 5V capabile pin 17 on the Teensy, at te bottom of the board.
+The LED data input should go to the 5V capabile pin 17 on the Teensy, at the bottom of the board.
 Wire the ground and 5V rail of the LEDs to the ground and 5V pins of the Teensy, which are
-the top most pins by the USB connector.
+the top most pins on each side of the board, by the USB connector.
 
 Finally, check again for shorts. Once confident, plug the Teensy in to USB power. You should
 see the LEDs light up and begin to cycle through RGB colors! Watch each LED go through an
@@ -167,7 +168,7 @@ entire cycle and make sure they all light up each fundamental color: red, green,
 I had a bogus LED that was missing green!
 
 If all LEDs pass, then pat yourself on the back! You've just completed the most difficult
-part of this project. Put the iron away, we're moving on (though you'll need it later)!
+part of this project. Put the iron away, we're moving on! (though you'll need the iron later...)
 
 #### Mount
 
@@ -222,13 +223,13 @@ Gather the remaining wall pieces of the box, hot glue gun, and clamps if you hav
 
 Clamp the wooden faceplate horizontally, with the majority of the clamp surface pointing
 past the back of the faceplate. This provides a flush, right angle surface for the side pieces
-to be placed against. Push one of the side pieces into place against the clamp, and then lay down
+to be held against. Push one of the side pieces into place against the clamp, and then lay down
 a bead of hot glue. Keep a margin around each screw hole and corner of the faceplate piece
 free of glue. We will need the space later for adding additional walls and the bolts.
 Complete both angled side walls.
 
 Remove the clamps and now move to the back of the box. If tolerances are correct, sliding in the
-back wall should be a tight fit, but still fit. Note that there will be a visible gap between
+back wall should be a tight fit, but still fit. Note that from the outside there will be a visible gap between
 the top of the back wall and the bottom of the faceplate. However, you should not be able to see
 though this gap.
 
@@ -246,9 +247,13 @@ for the front wall is very "glue thirsty."
 
 #### Mount front acrylic and bolts
 
+Make sure the faceplate and the letter cutouts are totally clean and free of debre and dust. Shine
+light through the frosted acrylic to make sure there isn't anything caught in the letters. The
+next step will seal the entire front faceplate behind acrylic, so be sure.
+
 Place the box bottom down, with the faceplace facing up. Peel off the protective coatings from
 the front acrylic piece and place it on top. Be extra careful not to place finger prints on
-the side which will be facing the wood. This will be permanently mounted, so impossible to clean.
+the side which will be facing the wood. Again, this will be permanently mounted and impossible to clean.
 Insert the four bolts and washers. Use the short bolts on the top end, as it has the
 tighest clearances inside.
 
@@ -260,7 +265,7 @@ interior acrylic.
 
 #### Mount button
 
-Prepare the button by attaching around 4" to the normally open (NO) contacts. If unsure, use your
+Prepare the button by attaching around 4" of wire to the normally open (NO) contacts. If unsure, use your
 multimeter in ohms or continuity mode and find the pair of contacts which are connected only
 when the button is pressed. The normally closed (NC) contacts can also be used, but then you'll
 have to update the code.
@@ -268,20 +273,20 @@ have to update the code.
 If you have the Uxcell button from Amazon the NO contacts are the two bottom screw terminals.
 You'll also have to remove the two rubber washers, as they add too much thickness.
 
-Pass the button through the hole, screw on the faceplate nut, and reassemble the button.
+Pass the button through the hole, screw on the faceplate nut to final tightness, and reassemble the button.
 
 #### Diffusion
 
 Plug in the box bottom with the electronics and fit it underneath the rest of the box.
 We just want to get an idea of how the lighting currently looks. You'll notice that there are
-hot spots, and even though the acrylic is frosted, and it is clear where the LEDs are inside
+hot spots, and even though the acrylic is frosted it is clear where the LEDs are inside
 the box.
 
 Cut pieces of the quilt batting to be slightly larger than the small interior acrylic pieces.
 Use hot glue to tack these inside the box until you are satisfied with the diffusion. A gluing tactic
 is to place glue against the sidewall above the batting, and then let it flow down into the batting. If
-you touch the batting with the hot glue gun tip, fibers will stick to it.
-You can also place small squares on top of the LEDs, especially the front most LEDs.
+you touch the batting with the hot glue gun tip the batting fibers will stick to it.
+You can also place small squares on top of the LEDs, especially the front most LEDs (but don't forget 5mm margins).
 
 
 ### Connect button, mount bottom, and feet
@@ -302,7 +307,7 @@ fills the area and pools on the faces we are gluing.
 
 Align the bottom piece with the box, and then clamp at the front of the box, from its left to right side. This
 will assure the horizontal alignment of the bottom piece and help keep it in place. Hold the box such that you
-can apply vertical force, pressing the bottom against the box. Now, angle the box so the edge between the front
+can apply vertical force, pressing the bottom piece against the box. Now, angle the box so the edge between the front
 and bottom pieces is horizontal, and the bottom of the box is rotated 45 deg from horizontal.
 
 Place the tip of the glue gun as close to the joint as possible and then pull the trigger a few times, filling the area with glue. Make sure to wait for the glue to cool before moving the box out of this orientation. The glue could
