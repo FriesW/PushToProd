@@ -41,6 +41,7 @@ You will need:
 1. Wire strippers
 1. Screwdriver
 1. Scissors
+1. Sandpaper, 220 grit or finer
 
 Recommended to also have:
 1. Mini clamps
@@ -93,3 +94,74 @@ You will need:
 1. Add diffusion, connect button, mount bottom
 
 ## Detailed
+
+### Program, solder, and mount electronics
+
+First, lets prepare the microcontroller. Download and install the
+[Arduino IDE](https://www.arduino.cc/en/Main/Software) and
+[Teensyduino](https://www.pjrc.com/teensy/teensyduino.html)
+software. Open the `PushToProd.ino`. In Arduino, go to tools and assure
+the following fields are set:
+* Board: Teensy LC
+* USB Type: Serial + Keyboard + Mouse + Joystick
+* CPU Speed: 48 MHz
+* Optimize code: smallest *(might not have this field)*
+
+Next, plug the Teensy into your computer with the USB cable. If the Teensy is new,
+you should see the on-board LED blink. Click the upload arrow in the
+Arduino IDE to load the code onto the Teensy, and follow the on-screen steps.
+If all goes well, you should see "Success" in the Teensy loader window.
+
+Unplug the Teensy, and prepare your soldering iron.
+
+First we will prepare the Teensy. The LEDs we are connecting expect 5V, but the Teensy is
+a 3.3V microcontroller. However, the Teensy has one built in 5V pin. Unfortunatley, due to
+technical reasons, we cannot use this pin directly. The software must use a different pin,
+which we will manually wire up to the 5V capabile pin.
+
+Thus, prepare and solder a short piece of (insulated) wire that will jump from
+the side breakout of pin 17 to the interior breakout of pin 24.
+
+Next, we will prepare the LEDs.
+
+WS2812 LEDs are digital LEDs, which have a data in and a data out.
+The LEDs are chained in series, such that the data output of each LED
+passes into the input of the next LED. In this way, the LEDs are "addressed"
+by the order they are wired, and thus can each individually be commanded to
+display a particular color.
+
+First build up two strings of three LEDs each. The goal is to have three LEDs
+bordering each side of the gap on the bottom of the box. They should be as close
+to the opening as possible, for clearances needed later in the build.
+
+I recommend soldering the middle data wire first, and then the outside power lines.
+The power lines can short together across the LED, but the data line cannot.
+
+Once you build the two strings of three LEDs, check for shorts if you have a multimeter.
+Put the meter in "Ohms" mode. If a ranged meter, put it in the most sensitive mode.
+The probes should be attached to the LEDs counter to the LED polarity, such that no current
+flows through the LEDs (since they are diodes). This means that any resistance seen (versus open circut) is caused by a short.
+
+Thus, place the black probe on the positive rail, and the red probe on the negative
+rail. This should read open circuit or a resistance in megaohms. Also try negative rail
+to data line, and positive rail to dataline. Additionally, you can check your work
+"horizontally" instead of "vertically". Place the probes on each end of the positive
+rail. Since this should conduct, the ohm reading should be very low. Repeat with the negative rail.
+
+Once confident all connections are correct, wire the two short strings together with about
+4.5" of wire. Then, wire the start of the string (signified by the only LED with no connected
+data input) to the Teensy with around 3.5" of wire. You will want the data line wire to be
+shorter then the power rail wires, due to where it will connect on the Teensy.
+
+The LED data input should go to the 5V capabile pin 17 on the Teensy, at te bottom of the board.
+Wire the ground and 5V rail of the LEDs to the ground and 5V pins of the Teensy, which are
+the top most pins by the USB connector.
+
+Finally, check again for shorts. Once confident, plug the Teensy in to USB power. You should
+see the LEDs light up and begin to cycle through RGB colors! Watch each LED go through an
+entire cycle and make sure they all light up each fundamental color: red, green, and blue.
+I had a bogus LED that was missing green!
+
+If all LEDs pass, then pat yourself on the back! You've just completed the most difficult
+part of this project. Put the iron away, we're moving on!
+
