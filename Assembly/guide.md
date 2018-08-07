@@ -1,6 +1,6 @@
 # Assembly Guide
 
-![The complete item](Images/00_final_lq.jpg)
+[![The complete item](Images/00_final_lq.jpg)](Images/00_final.jpg?raw=true)
 
 Want your own PushToProd button? This guide will step you through assembly.
 
