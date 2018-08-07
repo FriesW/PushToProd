@@ -20,7 +20,6 @@ with Epilog software, so it should be straightforward with Epilog systems.
     * [Parts needed](#parts-needed)
 * [Assembly](#assembly)
     * [Overview](#overview)
-    * [Detail](#detail)
 
 
 <br>
@@ -87,15 +86,14 @@ You will need:
 
 ## Overview
 
-1. Program, solder, and mount electronics
-1. Treat and place small acrylic backing pieces
-1. Build box, except bottom
-1. Mount front acrylic, bolts, button, and diffusion
-1. Connect button, mount bottom, and feet
+1. [Program, solder, and mount electronics](#program-solder-and-mount-electronics)
+1. [Treat and place small acrylic backing pieces](#treat-and-place-small-acrylic-backing-pieces)
+1. [Build box, except bottom](#build-box-except-bottom)
+1. [Mount front acrylic, bolts, button, and diffusion](#mount-front-acrylic-bolts-button-and-diffusion)
+1. [Connect button, mount bottom, and feet](#connect-button-mount-bottom-and-feet)
 
-## Detailed
 
-### Program, solder, and mount electronics
+## Program, solder, and mount electronics
 
 #### Program
 
@@ -198,7 +196,7 @@ acts like a strain relief, so movement of the Teensy and its wires doesn't affec
 Finally, plug in the Teensy and check that all the LEDs still light up!
 
 
-### Treat and place small acrylic backing pieces
+## Treat and place small acrylic backing pieces
 
 You'll need the two small acrylic pieces and sandpaper. The goal of this step
 is to make the acrylic appear frosted.
@@ -217,7 +215,7 @@ string of hot glue across the top of the acrylic at some point. It is much easie
 from the smooth surface (by rubbing it) then to remove it from the scratched surface.
 
 
-### Build box, except bottom
+## Build box, except bottom
 
 Gather the remaining wall pieces of the box, hot glue gun, and clamps if you have them.
 
@@ -243,7 +241,7 @@ from the outside, as the void is now on the inside of the box. This means the lo
 for the front wall is very "glue thirsty."
 
 
-### Mount front acrylic, bolts, button, and diffusion
+## Mount front acrylic, bolts, button, and diffusion
 
 #### Mount front acrylic and bolts
 
@@ -289,7 +287,7 @@ you touch the batting with the hot glue gun tip the batting fibers will stick to
 You can also place small squares on top of the LEDs, especially the front most LEDs (but don't forget 5mm margins).
 
 
-### Connect button, mount bottom, and feet
+## Connect button, mount bottom, and feet
 
 #### Connect button
 
@@ -329,7 +327,7 @@ into the glue with a large metal object, like hefty scissors. Any glue squeeze o
 cold metal, and the squeeze out will be flush with the non-stick material due to the flat implement
 (this will also save your finger tips).
 
-### Done!
+## Done!
 
 Congrats! You can now increase the ceremony and excitement around prod deployments.
 
