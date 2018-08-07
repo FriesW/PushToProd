@@ -9,7 +9,7 @@ with hot glue, and there are no "waiting" steps.
 
 Due to the wide array of laser cutters available, this guide does not go
 through the steps of engraving and cutting materials. It is assumed that cutting is
-already done. That said, the pdf files in the repository are built to work
+already done. However, the pdf files in the repository are built to work
 with Epilog software, so it should be straightforward with Epilog systems.
 
 
@@ -56,7 +56,7 @@ You will need:
         * Six box pieces
     * Acrylic
         * About 2.4 mm thick, but doesn't really matter
-        * Front panel & two small back pieces
+        * Front panel & two small diffuser pieces
 1. Solder & Wire
     * Also flux, if you have it
 1. [This button](https://www.amazon.com/Uxcell-a13071000ux0939-Push-Button-Switch/dp/B00EDMIYCW/) or similar (30 mm panel mount hole)
@@ -71,7 +71,7 @@ You will need:
 1. Quilt batting
     * Used for light diffusion
 1. Non-skid shelf liner
-    * Used as feet, provide friction between bottom and table
+    * Used as feet, provides friction between bottom and table
     * [Example product](https://www.amazon.com/Non-Skid-Drawer-Cabinet-Shelves-Non-Slip/dp/B00IXYIWC8)
 
 
@@ -87,7 +87,7 @@ You will need:
 ## Overview
 
 1. [Program, solder, and mount electronics](#program-solder-and-mount-electronics)
-1. [Treat and place small acrylic backing pieces](#treat-and-place-small-acrylic-backing-pieces)
+1. [Treat and place small acrylic diffuser pieces](#treat-and-place-small-acrylic-diffuser-pieces)
 1. [Build box, except bottom](#build-box-except-bottom)
 1. [Mount front acrylic, bolts, button, and diffusion](#mount-front-acrylic-bolts-button-and-diffusion)
 1. [Connect button, mount bottom, and feet](#connect-button-mount-bottom-and-feet)
@@ -116,15 +116,15 @@ Unplug the Teensy, and prepare your soldering iron.
 
 #### Solder
 
-First we will prepare the Teensy. The LEDs we are connecting expect 5V, but the Teensy is
-a 3.3V microcontroller. However, the Teensy has one built in 5V pin. Unfortunatley, due to
-technical reasons, we cannot use this pin directly. The software must use a different pin,
-which we will manually wire up to the 5V capabile pin.
+First prepare the Teensy. The LEDs expect 5V, but the Teensy is
+a 3.3V microcontroller. However, the Teensy has one built in 5V pin. Unfortunately, due to
+technical reasons, the 5V pin cannot be used directly. The software must use a different pin,
+which you will manually wire up to the 5V capable pin.
 
 Thus, prepare and solder a short piece of (insulated) wire that will jump from
 the side breakout of pin 17 to the interior breakout of pin 24.
 
-Next, we will prepare the LEDs.
+Next, prepare the LEDs.
 
 WS2812 LEDs are digital LEDs, which have a data in pin and a data out pin.
 The LEDs are chained in series, such that the data output of each LED
@@ -137,13 +137,14 @@ bordering each side of the gap on the bottom of the box. They should be as close
 to the opening as possible, for clearances needed later in the build.
 
 I recommend soldering the middle data wire first, and then the outside power lines.
-The power lines can shorted together across the LED, but the data line cannot.
+The data lines must be kept electrically separate. However, its okay if the power lines are shorted
+across an LED (positive to positive, or negative to negative).
 
 Once you build the two strings of three LEDs, check for shorts if you have a multimeter.
 Put the meter in "Ohms" mode. If a ranged meter, put it in the most sensitive mode.
 The probes should be attached to the LEDs counter to the LED polarity, such that no current
 flows through the LEDs (since they are diodes). This means that any resistance seen
-(versus open circut) is caused by a short.
+(versus open circuit) is caused by a short.
 
 Thus, place the black probe on the positive rail, and the red probe on the negative
 rail. This should read open circuit or a resistance in megaohms. Also try negative rail
@@ -156,59 +157,59 @@ Once confident all connections are correct, wire the two short strings together 
 data input) to the Teensy with around 3.5" of wire. You will want the data line wire to be
 shorter then the power rail wires, due to where it will connect on the Teensy.
 
-The LED data input should go to the 5V capabile pin 17 on the Teensy, at the bottom of the board.
+The LED data input should go to the 5V capable pin 17 on the Teensy, at the bottom of the board.
 Wire the ground and 5V rail of the LEDs to the ground and 5V pins of the Teensy, which are
 the top most pins on each side of the board, by the USB connector.
 
 Finally, check again for shorts. Once confident, plug the Teensy in to USB power. You should
 see the LEDs light up and begin to cycle through RGB colors! Watch each LED go through an
 entire cycle and make sure they all light up each fundamental color: red, green, and blue.
-I had a bogus LED that was missing green!
+I had a defective LED that was missing green!
 
 If all LEDs pass, then pat yourself on the back! You've just completed the most difficult
 part of this project. Put the iron away, we're moving on! (though you'll need the iron later...)
 
 #### Mount
 
-Move to the liquid plastic extruder (hot glue gun). We'll be gluing down the LEDs to the bottom panel
-with the hot glue gun. Throughout the entire process, keep in mind the constructon of the box: all
-of the walls sit on top of the bottom piece. Thus, we must keep the outer 5mm clear on each side of
+Move to the liquid plastic extruder (hot glue gun). You'll be gluing down the LEDs to the bottom panel
+with the hot glue gun. Throughout the entire process, keep in mind the construction of the box: all
+of the walls sit on top of the bottom piece. Thus, you must keep the outer 5mm clear on each side of
 the bottom.
 
 Start gluing with the first LED in the bottom right corner and work clockwise.
-Place a dab of hot glue under each LED, next to the bottom opening, and then press the LED in.
-Once you've done one side, we need to carefully bend the wire in a vertical loop. This
+Next to the bottom opening, place a dab of hot glue under each LED and then press them in.
+Once you've done one side, carefully bend the wire in a vertical loop. This
 loop will sit against the back wall once the enclosure is fully built.
 
 When bending the wire, use your nail and a firm grip to take all the forces of the bend.
 Try your best to keep any force off of the solder joints on the LEDs, as this could break the
 joint or rip off a PCB pad. Using your nail allows you to make a very sharp corner in the wire.
-Practice and figure out a technique that works for you. You might also plan ahead and pre-emptivley
+Practice and figure out a technique that works for you. You might also plan ahead and preemptively
 place bends before gluing.
 
-Once all six LEDs are glued down, we need to deal with the wire between the Teensy and first led.
-We want to bend the wire around towards the center, and then apply copious glue. This glue
+Once all six LEDs are glued down, the wire between the Teensy and first LED must be affixed.
+Bend the wire around towards the center, and then apply copious glue. This glue
 acts like a strain relief, so movement of the Teensy and its wires doesn't affect the LEDs.
 
-> The extra loops of wire in the photo are to even out the wirelengths coming from the Teensy.
+> The extra loops of wire in the photo are to even out the wire lengths coming from the Teensy.
 > They have no functional purpose.
 
 Finally, plug in the Teensy and check that all the LEDs still light up!
 
 
-## Treat and place small acrylic backing pieces
+## Treat and place small acrylic diffuser pieces
 
 You'll need the two small acrylic pieces and sandpaper. The goal of this step
 is to make the acrylic appear frosted.
 
 Acrylic comes with a protective plastic coating on each side. Peel the coating off of both sides
 and then begin sanding. I recommend sanding in a figure eight pattern, to prevent uniform scratches.
-For me each piece needed 200 cycles, with a washing in the middle. Your milage may vary.
+For me each piece needed 200 cycles, with a washing in the middle. Your mileage may vary.
 
-Once the pieces are frosted to your liking, cleaned, dry, and free of dust, we'll mount them.
+Once the pieces are frosted to your liking, cleaned, dry, and free of dust, you'll mount them.
 The pieces go behind the lettering in the faceplate piece, with the cutout corners of the acrylic
 pieces directed towards the bolt holes. Place the acrylic pieces on the back side of the faceplate,
-frosted side down, smooth side up. Then place a bead of hot glue around the perimiter.
+frosted side down, smooth side up. Then place a bead of hot glue around the perimeter.
 
 Placing the smooth side up has a big advantage: unless you are a hot glue ninja, you will drag a
 string of hot glue across the top of the acrylic at some point. It is much easier to remove
@@ -223,8 +224,8 @@ Clamp the wooden faceplate horizontally, with the majority of the clamp surface 
 past the back of the faceplate. This provides a flush, right angle surface for the side pieces
 to be held against. Push one of the side pieces into place against the clamp, and then lay down
 a bead of hot glue. Keep a margin around each screw hole and corner of the faceplate piece
-free of glue. We will need the space later for adding additional walls and the bolts.
-Complete both angled side walls.
+free of glue. You will need the space later for adding additional walls and the bolts.
+Complete both angled sidewalls.
 
 Remove the clamps and now move to the back of the box. If tolerances are correct, sliding in the
 back wall should be a tight fit, but still fit. Note that from the outside there will be a visible gap between
@@ -245,15 +246,16 @@ for the front wall is very "glue thirsty."
 
 #### Mount front acrylic and bolts
 
-Make sure the faceplate and the letter cutouts are totally clean and free of debre and dust. Shine
+Make sure the faceplate and the letter cutouts are totally clean and free of debris and dust. Shine
 light through the frosted acrylic to make sure there isn't anything caught in the letters. The
 next step will seal the entire front faceplate behind acrylic, so be sure.
 
 Place the box bottom down, with the faceplace facing up. Peel off the protective coatings from
 the front acrylic piece and place it on top. Be extra careful not to place finger prints on
-the side which will be facing the wood. Again, this will be permanently mounted and impossible to clean.
+the side which will be facing the wood. Again, this will be permanently mounted, making
+it impossible to clean the underside.
 Insert the four bolts and washers. Use the short bolts on the top end, as it has the
-tighest clearances inside.
+tightest clearances inside.
 
 Now, carefully flip over the box, such that none of the bolts fall out. The box should now
 be sitting on the table through the four bolt heads. Without picking up the box, flood each corner
@@ -276,8 +278,8 @@ Pass the button through the hole, screw on the faceplate nut to final tightness,
 #### Diffusion
 
 Plug in the box bottom with the electronics and fit it underneath the rest of the box.
-We just want to get an idea of how the lighting currently looks. You'll notice that there are
-hot spots, and even though the acrylic is frosted it is clear where the LEDs are inside
+This is just to get an idea of how the lighting currently looks. You'll notice that there are
+hot spots, and even though the acrylic is frosted it is obvious where the LEDs are inside
 the box.
 
 Cut pieces of the quilt batting to be slightly larger than the small interior acrylic pieces.
@@ -292,37 +294,37 @@ You can also place small squares on top of the LEDs, especially the front most L
 #### Connect button
 
 Unless you've modified the code, the button should be connected to pins 3 and 4 of the Teensy. Solder the
-wires to these pins. Once that is complete, we are done with the soldering iron! Plug in the USB cable and test
-that everything works: the lights light up, and the button changes the animation.
+wires to these pins. Once that is complete, you are completely done with the soldering iron!
+Plug in the USB cable and test that everything works: the lights light up, and the button changes the animation.
 
 #### Mount bottom
 
 Now the bottom piece, which has the LEDs and other electronics, can be attached to the rest of the box.
 This is a little tricky, as there isn't a lot of room to access the interior. However, hot glue does flow a bit,
-and this can be used to our advantage. The general tactic will be to hold the box such that the corner we are 
-gluing is pointing down, with the box 45 deg from level. Then flood the edge with hot glue, assuring that the glue
-fills the area and pools on the faces we are gluing.
+and this can be used as an advantage. The general tactic will be to hold the box such that the corner or edge being
+glued is pointing down, with the box 45 degrees from level. Then flood the edge with hot glue, assuring that the glue
+fills the area and pools on the faces being joined.
 
 Align the bottom piece with the box, and then clamp at the front of the box, from its left to right side. This
-will assure the horizontal alignment of the bottom piece and help keep it in place. Hold the box such that you
+will ensure the horizontal alignment of the bottom piece and help keep it in place. Hold the box such that you
 can apply vertical force, pressing the bottom piece against the box. Now, angle the box so the edge between the front
-and bottom pieces is horizontal, and the bottom of the box is rotated 45 deg from horizontal.
+and bottom pieces is horizontal, and the bottom of the box is rotated 45 degrees from horizontal.
 
 Place the tip of the glue gun as close to the joint as possible and then pull the trigger a few times, filling the area with glue. Make sure to wait for the glue to cool before moving the box out of this orientation. The glue could
-spill out of the box and off of the joint if the orientation is changed. One set, remove the clamp(s) and prepare
+spill out of the box and off of the joint if the orientation is changed too soon. One set, remove the clamp(s) and prepare
 for the back of the box.
 
 TODO: BACK OF BOX
 
 #### Feet
 
-Finally, we must put "feet" on the bottom, otherwise the box will slide away every time you try to push the button.
+Finally, "feet" must be put on the bottom, otherwise the box will slide away every time you try to push the button.
 Cut two equal strips of the non-skid shelf liner material. They would be about 0.5" wide and as long as the bottom
 opening.
 
 Lay a single bead of hot glue down, next to the bottom opening. Then press the non-skid material into the
-glue. Be careful to not use too much hot glue, as we don't want it to squeese out through the gaps in the non-skid
-material and prevent even contact with a table top. Additionally, you might press the non-skid material
+glue. Be careful to not use too much hot glue, as squeeze out through the gaps in the non-skid
+material could cause uneven contact with a table top. Additionally, you might press the non-skid material
 into the glue with a large metal object, like hefty scissors. Any glue squeeze out will not stick to the
 cold metal, and the squeeze out will be flush with the non-stick material due to the flat implement
 (this will also save your finger tips).
