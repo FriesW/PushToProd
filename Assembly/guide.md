@@ -1,5 +1,7 @@
 # Assembly Guide
 
+![The complete item](Images/00_final_lq.jpg)
+
 Want your own PushToProd button? This guide will step you through assembly.
 
 Assembling the PushToProd button is relatively easy. The most difficult
